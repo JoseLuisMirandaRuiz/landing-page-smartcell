@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO & Metadatos Principales -->
+  <title>SmartCell Commerce Platform | E-Commerce y ERP Ligero para Celulares con Control por IMEI</title>
+  <meta name="description" content="La plataforma integral de E-Commerce y ERP ligero para la comercialización inteligente de teléfonos móviles y accesorios con trazabilidad única por IMEI, logística y cobranzas." />
+  <meta name="keywords" content="SmartCell, ecommerce celulares, control por imei, erp telefonia, inventario smartphones, logistica de despachos, trazabilidad imei" />
+  <meta name="author" content="SmartCell Engineering Team" />
+
+  <!-- Open Graph / Redes Sociales -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SmartCell Commerce Platform | Vende y Controla Celulares por IMEI" />
+  <meta property="og:description" content="Reducción del 40% en descuadres de stock en telefonía móvil con control riguroso por IMEI y tienda virtual integrada." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=80" />
+
+  <!-- Favicon (SVG embebido con icono de smartphone y chip) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563EB'><path d='M10.5 1.5H5.25A2.25 2.25 0 003 3.75v16.5a2.25 2.25 0 002.25 2.25h13.5A2.25 2.25 0 0021 20.25V11.25a.75.75 0 00-1.5 0v9a.75.75 0 01-.75.75H5.25a.75.75 0 01-.75-.75V3.75a.75.75 0 01.75-.75h5.25a.75.75 0 000-1.5z'/><path d='M15 1.5a.75.75 0 000 1.5h4.44l-8.47 8.47a.75.75 0 101.06 1.06L20.5 4.06V8.5a.75.75 0 001.5 0V1.5H15z'/></svg>" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0F172A',
+              surface: '#1E293B',
+              blue: '#2563EB',
+              blueHover: '#1D4ED8',
+              cyan: '#06B6D4',
+              cyanLight: '#22D3EE',
+              light: '#F8FAFC'
+            }
+          },
+          fontFamily: {
+            heading: ['"Plus Jakarta Sans"', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome 6.5.1 CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Estilos Personalizados -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="bg-[#F8FAFC] text-slate-800 antialiased font-body selection:bg-blue-600 selection:text-white">
+
+  <!-- =========================================================================
+       1. HEADER / NAVBAR
+       ========================================================================= -->
+  <header id="mainNavbar" class="fixed top-0 left-0 right-0 z-50 glass-header py-4 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between">
+        
+        <!-- Logotipo SmartCell -->
+        <a href="#inicio" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-blue-600 rounded-lg p-1">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-700 via-blue-600 to-cyan-400 flex items-center justify-center text-white shadow-md shadow-blue-500/25 group-hover:scale-105 transition-transform">
+            <i class="fa-solid fa-mobile-screen-button text-lg"></i>
+          </div>
+          <div class="flex flex-col">
+            <div class="flex items-center gap-1.5">
+              <span class="font-heading font-extrabold text-xl tracking-tight text-slate-900">Smart<span class="text-blue-600">Cell</span></span>
+              <span class="bg-blue-100 text-blue-700 text-[10px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wider">v2.4</span>
+            </div>
+            <span class="text-[11px] font-semibold text-slate-400 tracking-wider uppercase -mt-1">Commerce & ERP</span>
+          </div>
+        </a>
+
+        <!-- Navegación de Escritorio -->
+        <nav class="hidden lg:flex items-center gap-7">
+          <a href="#inicio" class="desktop-nav-link text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors">Inicio</a>
+          <a href="#vision" class="desktop-nav-link text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors">Visión</a>
+          <a href="#caracteristicas" class="desktop-nav-link text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors">Características</a>
+          <a href="#como-funciona" class="desktop-nav-link text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors">Cómo Funciona</a>
+          <a href="#testimonios" class="desktop-nav-link text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors">Testimonios</a>
+          <a href="#planes" class="desktop-nav-link text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors">Planes</a>
+          <a href="#contacto" class="desktop-nav-link text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors">Contacto</a>
+        </nav>
+
+        <!-- Botones de Acción (Desktop) -->
+        <div class="hidden lg:flex items-center gap-3">
+          <button 
+            type="button"
+            class="open-demo-modal px-4 py-2 text-sm font-bold text-slate-700 hover:text-blue-600 hover:bg-slate-100/80 rounded-xl transition-all cursor-pointer flex items-center gap-2"
+          >
+            <i class="fa-solid fa-laptop-code text-blue-600"></i> Demo Panel
+          </button>
+          <a 
+            href="#contacto" 
+            class="px-5 py-2.5 text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5 transition-all flex items-center gap-2 cursor-pointer"
+          >
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-300 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+            </span>
+            Acceder a la Tienda
+          </a>
+        </div>
+
+        <!-- Botón Menú Móvil (Hamburguesa) -->
+        <div class="flex lg:hidden">
+          <button 
+            id="mobileMenuBtn" 
+            type="button"
+            class="p-2 text-slate-700 hover:text-blue-600 hover:bg-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors"
+            aria-label="Abrir menú de navegación"
+            aria-expanded="false"
+          >
+            <i id="menuIcon" class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Menú Desplegable Móvil -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-white/98 border-b border-slate-200 px-4 pt-3 pb-6 shadow-xl transition-all">
+      <nav class="flex flex-col space-y-3">
+        <a href="#inicio" class="mobile-nav-link px-3 py-2 text-base font-semibold text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-lg">Inicio</a>
+        <a href="#vision" class="mobile-nav-link px-3 py-2 text-base font-semibold text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-lg">Visión</a>
+        <a href="#caracteristicas" class="mobile-nav-link px-3 py-2 text-base font-semibold text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-lg">Características</a>
+        <a href="#como-funciona" class="mobile-nav-link px-3 py-2 text-base font-semibold text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-lg">Cómo Funciona</a>
+        <a href="#testimonios" class="mobile-nav-link px-3 py-2 text-base font-semibold text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-lg">Testimonios</a>
+        <a href="#planes" class="mobile-nav-link px-3 py-2 text-base font-semibold text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-lg">Planes</a>
+        <a href="#contacto" class="mobile-nav-link px-3 py-2 text-base font-semibold text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-lg">Contacto</a>
+        
+        <div class="pt-4 border-t border-slate-100 flex flex-col gap-2">
+          <button type="button" class="open-demo-modal w-full py-2.5 text-center text-sm font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors">
+            <i class="fa-solid fa-laptop-code text-blue-600 mr-2"></i> Probar Demo Panel
+          </button>
+          <a href="#contacto" class="mobile-nav-link w-full py-2.5 text-center text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-md transition-colors">
+            Acceder a la Tienda
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       2. HERO SECTION (IMPACTO INICIAL & MOCKUP INTERACTIVO)
+       ========================================================================= -->
+  <section id="inicio" class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-gradient-hero bg-tech-grid">
+    <!-- Efectos de Luces y Gradientes de Fondo -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-blue-400/20 to-cyan-300/20 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-4xl mx-auto">
+        
+        <!-- Badge Flotante Superior -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-blue-200 shadow-sm shadow-blue-500/10 mb-6 animate-float">
+          <span class="w-2.5 h-2.5 rounded-full bg-cyan-500 radar-dot"></span>
+          <span class="text-xs sm:text-sm font-bold text-slate-800">
+            ⚡ Reducción del <span class="text-blue-600">40%</span> en descuadres de stock con control por IMEI
+          </span>
+        </div>
+
+        <!-- Título Principal -->
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.12] mb-6 font-heading">
+          Vende Celulares en Línea y <br class="hidden sm:inline" />
+          <span class="text-gradient-primary">Domina tu Inventario</span> con SmartCell
+        </h1>
+
+        <!-- Subtítulo -->
+        <p class="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto mb-10">
+          La primera plataforma de E-Commerce especializada en telefonía móvil que integra catálogo web, rastreo riguroso por IMEI, despacho logístico y conciliación de cobranzas en un solo lugar.
+        </p>
+
+        <!-- Botones de Acción (CTA) -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+          <a 
+            href="#contacto" 
+            class="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-2xl shadow-xl shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-3 cursor-pointer text-base"
+          >
+            <span>Iniciar Demo Gratis</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a 
+            href="#catalogo-interactivo" 
+            class="w-full sm:w-auto px-8 py-4 bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 font-bold rounded-2xl shadow-md hover:border-blue-400 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-3 cursor-pointer text-base"
+          >
+            <i class="fa-solid fa-mobile-screen text-blue-600"></i>
+            <span>Ver Catálogo Interactivo</span>
+          </a>
+        </div>
+
+        <!-- Indicadores de Confianza -->
+        <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs sm:text-sm font-semibold text-slate-500">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-star text-amber-400"></i>
+            <span>4.9/5 Satisfacción de Tiendas</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-shield-halved text-emerald-500"></i>
+            <span>Cifrado TLS 1.3 & Auditoría RBAC</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-bolt text-cyan-500"></i>
+            <span>Respuesta en menos de 2s</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- VISUAL HERO MOCKUP: Simulación de Interfaz Tienda / ERP -->
+      <div class="mt-14 relative max-w-5xl mx-auto">
+        
+        <!-- Tarjeta Flotante Izquierda: Alerta de Despacho -->
+        <div class="floating-stat-card -left-8 top-16 p-3.5 hidden md:flex items-center gap-3.5 max-w-xs animate-float">
+          <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg">
+            <i class="fa-solid fa-truck-fast"></i>
+          </div>
+          <div>
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Despacho Verificado</span>
+            <span class="text-xs font-bold text-slate-800 block">IMEI #864209054719...</span>
+            <span class="text-[10px] text-emerald-600 font-semibold">Listo para courier • Guía #291</span>
+          </div>
+        </div>
+
+        <!-- Tarjeta Flotante Derecha: Ventas en Vivo -->
+        <div class="floating-stat-card -right-8 bottom-12 p-3.5 hidden md:flex items-center gap-3.5 max-w-xs animate-float-delayed">
+          <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-lg">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <div>
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Ventas Hoy (Online)</span>
+            <span class="text-sm font-extrabold text-slate-900 block">$14,850.00 USD</span>
+            <span class="text-[10px] text-emerald-600 font-bold flex items-center gap-1">
+              <i class="fa-solid fa-arrow-trend-up"></i> +32% vs semana previa
+            </span>
+          </div>
+        </div>
+
+        <!-- Contenedor del Mockup (Estilo Navegador Moderno) -->
+        <div class="hero-mockup-wrapper bg-slate-900 border border-slate-700/80 overflow-hidden">
+          
+          <!-- Barra Superior del Sistema / Navegador -->
+          <div class="window-header">
+            <div class="window-dots">
+              <span class="window-dot red"></span>
+              <span class="window-dot yellow"></span>
+              <span class="window-dot green"></span>
+            </div>
+            
+            <!-- Selector de Pestañas Interactivas (Tienda vs Backoffice) -->
+            <div class="flex items-center bg-slate-800/90 p-1 rounded-xl border border-slate-700 text-xs">
+              <button id="tabStoreBtn" class="tab-btn active px-3 py-1 rounded-lg font-bold text-slate-300">
+                <i class="fa-solid fa-store mr-1.5"></i> Vista Tienda E-Commerce
+              </button>
+              <button id="tabAdminBtn" class="tab-btn px-3 py-1 rounded-lg font-bold text-slate-300">
+                <i class="fa-solid fa-chart-pie mr-1.5"></i> Vista Backoffice ERP (IMEI)
+              </button>
+            </div>
+
+            <div class="text-[11px] font-mono text-slate-400 hidden sm:block">
+              <i class="fa-solid fa-lock text-emerald-400 mr-1"></i> app.smartcell.com
+            </div>
+          </div>
+
+          <!-- CONTENIDO PESTAÑA 1: VISTA TIENDA E-COMMERCE -->
+          <div id="heroStoreView" class="p-4 sm:p-6 bg-slate-950 text-white transition-opacity duration-300">
+            <!-- Barra de estado simulada -->
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-5">
+              <div class="flex items-center gap-3">
+                <div class="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center text-white text-xs">
+                  <i class="fa-solid fa-bolt"></i>
+                </div>
+                <span class="font-bold text-sm text-slate-200">SmartCell Store • Catálogo Público</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="bg-blue-900/50 text-blue-400 text-xs font-semibold px-2.5 py-1 rounded-lg border border-blue-800">
+                  <i class="fa-solid fa-cart-shopping mr-1"></i> Carrito: 2 Equipos
+                </span>
+                <span class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-xs text-slate-300 font-bold">
+                  CM
+                </span>
+              </div>
+            </div>
+
+            <!-- Fila de Smartphones Simulados en Vitrina -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <!-- Item 1 -->
+              <div class="bg-slate-900/90 rounded-xl p-4 border border-slate-800 hover:border-blue-500/50 transition-colors">
+                <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+                  <span class="text-cyan-400 font-bold">Apple</span>
+                  <span class="bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded text-[10px] font-semibold">En Stock</span>
+                </div>
+                <div class="h-28 bg-slate-800/80 rounded-lg flex items-center justify-center text-3xl text-slate-500 mb-3">
+                  <i class="fa-solid fa-mobile-screen-button text-blue-400"></i>
+                </div>
+                <h4 class="font-bold text-sm text-slate-100">iPhone 15 Pro Max 256GB</h4>
+                <div class="flex items-center justify-between mt-2 pt-2 border-t border-slate-800 text-xs">
+                  <span class="text-emerald-400 font-extrabold text-sm">$1,399 USD</span>
+                  <span class="text-[10px] bg-slate-800 px-2 py-1 rounded font-mono text-blue-300">IMEI Vinculado</span>
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="bg-slate-900/90 rounded-xl p-4 border border-blue-500/40 relative shadow-lg shadow-blue-950">
+                <span class="absolute -top-2.5 right-4 bg-blue-600 text-[10px] font-extrabold px-2 py-0.5 rounded-full text-white uppercase tracking-wider">
+                  Más Vendido
+                </span>
+                <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+                  <span class="text-cyan-400 font-bold">Samsung</span>
+                  <span class="bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded text-[10px] font-semibold">14 un. en bodega</span>
+                </div>
+                <div class="h-28 bg-slate-800/80 rounded-lg flex items-center justify-center text-3xl text-slate-500 mb-3">
+                  <i class="fa-solid fa-mobile text-cyan-400"></i>
+                </div>
+                <h4 class="font-bold text-sm text-slate-100">Galaxy S24 Ultra 512GB</h4>
+                <div class="flex items-center justify-between mt-2 pt-2 border-t border-slate-800 text-xs">
+                  <span class="text-emerald-400 font-extrabold text-sm">$1,299 USD</span>
+                  <span class="text-[10px] bg-blue-600/30 text-cyan-300 px-2 py-1 rounded font-mono font-bold">IMEI #358249...</span>
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="bg-slate-900/90 rounded-xl p-4 border border-slate-800 hover:border-blue-500/50 transition-colors">
+                <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+                  <span class="text-cyan-400 font-bold">Xiaomi</span>
+                  <span class="bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded text-[10px] font-semibold">22 un.</span>
+                </div>
+                <div class="h-28 bg-slate-800/80 rounded-lg flex items-center justify-center text-3xl text-slate-500 mb-3">
+                  <i class="fa-solid fa-tablet-screen-button text-amber-400"></i>
+                </div>
+                <h4 class="font-bold text-sm text-slate-100">Xiaomi 14 Ultra 512GB</h4>
+                <div class="flex items-center justify-between mt-2 pt-2 border-t border-slate-800 text-xs">
+                  <span class="text-emerald-400 font-extrabold text-sm">$999 USD</span>
+                  <span class="text-[10px] bg-slate-800 px-2 py-1 rounded font-mono text-blue-300">Despacho Exprés</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONTENIDO PESTAÑA 2: VISTA BACKOFFICE ERP (AUDITORÍA IMEI) -->
+          <div id="heroAdminView" class="p-4 sm:p-6 bg-slate-950 text-white hidden transition-opacity duration-300">
+            <!-- Header del panel -->
+            <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-4 mb-4">
+              <div>
+                <span class="text-xs text-slate-400 block font-mono">PANEL DE AUDITORÍA DE INVENTARIO</span>
+                <h4 class="text-base font-bold text-white flex items-center gap-2">
+                  <i class="fa-solid fa-barcode text-cyan-400"></i> Trazabilidad Unitaria por IMEI
+                </h4>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 bg-emerald-500/20 text-emerald-400 text-xs rounded-lg font-bold border border-emerald-500/30">
+                  <i class="fa-solid fa-check-double mr-1"></i> 100% Stock Cuadrado
+                </span>
+                <span class="px-2.5 py-1 bg-blue-500/20 text-blue-400 text-xs rounded-lg font-mono">
+                  Sincronizado: hace 3s
+                </span>
+              </div>
+            </div>
+
+            <!-- Tabla de Trazabilidad IMEI en Vivo -->
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs font-mono">
+                <thead class="bg-slate-900 text-slate-400 border-b border-slate-800">
+                  <tr>
+                    <th class="py-2.5 px-3">Código IMEI (15 Dígitos)</th>
+                    <th class="py-2.5 px-3">Modelo & Almacenamiento</th>
+                    <th class="py-2.5 px-3">Estado Logístico</th>
+                    <th class="py-2.5 px-3">Ubicación / Destino</th>
+                    <th class="py-2.5 px-3 text-right">Acción</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-800/60">
+                  <tr class="hover:bg-slate-900/60">
+                    <td class="py-2.5 px-3 text-cyan-400 font-bold">358249110294812</td>
+                    <td class="py-2.5 px-3 text-slate-200">Galaxy S24 Ultra (Titanium)</td>
+                    <td class="py-2.5 px-3">
+                      <span class="bg-blue-900/60 text-blue-300 px-2 py-0.5 rounded text-[10px] font-bold">En Bodega Central</span>
+                    </td>
+                    <td class="py-2.5 px-3 text-slate-400">Estante B-04 / Casilla 12</td>
+                    <td class="py-2.5 px-3 text-right">
+                      <button onclick="openImeiModal(1)" class="text-blue-400 hover:text-white underline cursor-pointer">Ver Historial</button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-slate-900/60">
+                    <td class="py-2.5 px-3 text-cyan-400 font-bold">864209054719302</td>
+                    <td class="py-2.5 px-3 text-slate-200">iPhone 15 Pro Max (Blue)</td>
+                    <td class="py-2.5 px-3">
+                      <span class="bg-amber-900/60 text-amber-300 px-2 py-0.5 rounded text-[10px] font-bold">Asignado a Despacho</span>
+                    </td>
+                    <td class="py-2.5 px-3 text-slate-400">Ruta Norte • Courier #18</td>
+                    <td class="py-2.5 px-3 text-right">
+                      <button onclick="openImeiModal(2)" class="text-blue-400 hover:text-white underline cursor-pointer">Ver Historial</button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-slate-900/60">
+                    <td class="py-2.5 px-3 text-cyan-400 font-bold">861928049182304</td>
+                    <td class="py-2.5 px-3 text-slate-200">Xiaomi 14 Ultra (Black)</td>
+                    <td class="py-2.5 px-3">
+                      <span class="bg-emerald-900/60 text-emerald-300 px-2 py-0.5 rounded text-[10px] font-bold">Vendido & Conciliado</span>
+                    </td>
+                    <td class="py-2.5 px-3 text-slate-400">Factura Electrónica #FE-4819</td>
+                    <td class="py-2.5 px-3 text-right">
+                      <button onclick="openImeiModal(3)" class="text-blue-400 hover:text-white underline cursor-pointer">Ver Historial</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Banner Informativo Inferior -->
+            <div class="mt-4 p-2.5 bg-blue-950/60 border border-blue-800/60 rounded-lg flex items-center justify-between text-xs text-blue-200">
+              <span class="flex items-center gap-2">
+                <i class="fa-solid fa-shield-halved text-cyan-400"></i>
+                Auditoría automática: Registro inmutable contra robos, extravíos y clones.
+              </span>
+              <a href="#caracteristicas" class="text-cyan-400 font-bold hover:underline">Ver módulo completo →</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       3. SECCIÓN SOBRE NOSOTROS / VISIÓN DEL PROYECTO
+       ========================================================================= -->
+  <section id="vision" class="py-24 bg-white border-y border-slate-200/80 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Encabezado de Sección -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-blue-600 font-bold text-xs uppercase tracking-wider bg-blue-50 px-3 py-1.5 rounded-full border border-blue-200 inline-block mb-3">
+          Nuestra Razón de Ser
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-heading mb-4">
+          Visión SmartCell: <span class="text-gradient-primary">Innovación y Control Total</span>
+        </h2>
+        <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+          El comercio de telefonía móvil enfrenta un desafío crítico: un celular no es un producto genérico; cada equipo tiene un valor de cientos de dólares y un identificador único global (IMEI). SmartCell resuelve la pérdida de trazabilidad integrando la tienda virtual moderna con el control riguroso de inventarios, despachos y conciliación de cobranzas.
+        </p>
+      </div>
+
+      <!-- GRID DE MÉTRICAS CLAVE (Animadas con JS) -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        
+        <!-- Métrica 1: Reducción pérdidas -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 text-center hover:shadow-lg hover:border-blue-300 transition-all">
+          <div class="w-12 h-12 mx-auto mb-3 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-arrow-trend-down"></i>
+          </div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading mb-1">
+            <span class="metric-counter" data-target="40" data-suffix="%">0%</span>
+          </div>
+          <h4 class="text-xs sm:text-sm font-bold text-slate-800 mb-1">Reducción en Pérdidas</h4>
+          <p class="text-xs text-slate-500">Eliminación de descuadres de stock gracias al rastreo único por IMEI.</p>
+        </div>
+
+        <!-- Métrica 2: Tiempo respuesta -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 text-center hover:shadow-lg hover:border-cyan-300 transition-all">
+          <div class="w-12 h-12 mx-auto mb-3 rounded-xl bg-cyan-100 text-cyan-600 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-gauge-high"></i>
+          </div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading mb-1">
+            <span class="metric-counter" data-target="2" data-prefix="< " data-suffix="s">0s</span>
+          </div>
+          <h4 class="text-xs sm:text-sm font-bold text-slate-800 mb-1">Tiempo de Respuesta</h4>
+          <p class="text-xs text-slate-500">Velocidad de carga ultrarrápida para clientes y administradores.</p>
+        </div>
+
+        <!-- Métrica 3: Disponibilidad -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 text-center hover:shadow-lg hover:border-emerald-300 transition-all">
+          <div class="w-12 h-12 mx-auto mb-3 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+          </div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading mb-1">
+            <span class="metric-counter" data-target="99.5" data-decimal="true" data-suffix="%">0%</span>
+          </div>
+          <h4 class="text-xs sm:text-sm font-bold text-slate-800 mb-1">Disponibilidad en la Nube</h4>
+          <p class="text-xs text-slate-500">SLA 24/7 con tolerancia a fallos y copias de seguridad automáticas.</p>
+        </div>
+
+        <!-- Métrica 4: Trazabilidad -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 text-center hover:shadow-lg hover:border-blue-300 transition-all">
+          <div class="w-12 h-12 mx-auto mb-3 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-fingerprint"></i>
+          </div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading mb-1">
+            <span class="metric-counter" data-target="100" data-suffix="%">0%</span>
+          </div>
+          <h4 class="text-xs sm:text-sm font-bold text-slate-800 mb-1">Trazabilidad por IMEI</h4>
+          <p class="text-xs text-slate-500">Cada dispositivo individual queda registrado desde bodega a entrega.</p>
+        </div>
+
+      </div>
+
+      <!-- Tarjeta Comparativa: El Problema vs La Solución -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-slate-900 text-white rounded-3xl p-8 sm:p-10 shadow-xl">
+        <div class="space-y-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-red-400 bg-red-950/80 px-3 py-1 rounded-full border border-red-800 inline-block">
+            <i class="fa-solid fa-circle-xmark mr-1"></i> El Comercio Tradicional de Celulares
+          </span>
+          <h3 class="text-2xl font-bold font-heading">Pérdida de Dinero, Desorden y Desconfianza</h3>
+          <ul class="space-y-3 text-sm text-slate-300">
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-xmark text-red-400 mt-1"></i>
+              <span>Venta de teléfonos por cantidad genérica sin saber qué número de serie (IMEI) salió de bodega.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-xmark text-red-400 mt-1"></i>
+              <span>Descuadres constantes entre lo que dice la tienda online y lo que realmente hay en stock físico.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-xmark text-red-400 mt-1"></i>
+              <span>Problemas graves de garantía al no poder demostrar si un celular dañado pertenecía a la tienda.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="space-y-4 border-t lg:border-t-0 lg:border-l border-slate-800 pt-6 lg:pt-0 lg:pl-8">
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/80 px-3 py-1 rounded-full border border-emerald-800 inline-block">
+            <i class="fa-solid fa-circle-check mr-1"></i> La Solución Integral con SmartCell
+          </span>
+          <h3 class="text-2xl font-bold font-heading text-gradient-cyan">Control Milimétrico y Experiencia Premium</h3>
+          <ul class="space-y-3 text-sm text-slate-300">
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-check text-emerald-400 mt-1"></i>
+              <span>Asignación de IMEI al momento exacto de la orden: el repartidor entrega el equipo verificado.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-check text-emerald-400 mt-1"></i>
+              <span>Sincronización instantánea de stock: cuando un cliente compra online, la bodega se actualiza en 1 segundo.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-check text-emerald-400 mt-1"></i>
+              <span>Certificado digital de garantía vinculado al IMEI para total tranquilidad del comprador y del vendedor.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       4. SECCIÓN DE CARACTERÍSTICAS Y BENEFICIOS
+       ========================================================================= -->
+  <section id="caracteristicas" class="py-24 bg-[#F8FAFC]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Título de Sección -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-blue-600 font-bold text-xs uppercase tracking-wider bg-blue-50 px-3 py-1.5 rounded-full border border-blue-200 inline-block mb-3">
+          Módulos del Sistema
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-heading mb-4">
+          Todo lo que Necesitas para <span class="text-gradient-primary">Escalar tu Negocio Móvil</span>
+        </h2>
+        <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+          Diseñado específicamente para distribuidores de tecnología, tiendas de telefonía móvil y comercios electrónicos con logística propia.
+        </p>
+      </div>
+
+      <!-- GRID DE 6 CARACTERÍSTICAS DETALLADAS -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        
+        <!-- Tarjeta 1: E-Commerce y Catálogo Público -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper bg-blue-100 text-blue-600">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2 font-heading">E-Commerce y Catálogo Público</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4">
+            Tienda virtual de alta conversión con filtros avanzados por marca, precio, memoria RAM y almacenamiento interno. Carrito dinámico y proceso de compra en 3 pasos.
+          </p>
+          <ul class="text-xs font-semibold text-slate-700 space-y-2">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-600"></i> Filtros por especificaciones técnicas</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-600"></i> Carrito persistente y checkout fluido</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-600"></i> Diseño adaptativo para compras en celular</li>
+          </ul>
+        </div>
+
+        <!-- Tarjeta 2: Control de Inventarios por IMEI -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper bg-cyan-100 text-cyan-700">
+            <i class="fa-solid fa-mobile-screen"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2 font-heading">Control de Inventarios por IMEI</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4">
+            Auditoría precisa de cada smartphone en bodega mediante su código único de 15 dígitos. Alertas automáticas de stock bajo y estados en tiempo real (Disponible, Reservado, Vendido).
+          </p>
+          <ul class="text-xs font-semibold text-slate-700 space-y-2">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-600"></i> Escaneo rápido con pistola o cámara</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-600"></i> Historial inmutable de movimientos</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-600"></i> Prevención total de duplicados y mermas</li>
+          </ul>
+        </div>
+
+        <!-- Tarjeta 3: Logística y Distribución -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper bg-indigo-100 text-indigo-600">
+            <i class="fa-solid fa-truck-fast"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2 font-heading">Logística y Distribución</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4">
+            Emisión de órdenes de despacho vinculando el IMEI exacto del equipo entregado. Seguimiento de envíos, asignación de motorizados y confirmación con firma digital.
+          </p>
+          <ul class="text-xs font-semibold text-slate-700 space-y-2">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-600"></i> Guía de despacho con IMEI impreso</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-600"></i> Trazabilidad de courier y motorizado</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-600"></i> Notificaciones de entrega por WhatsApp</li>
+          </ul>
+        </div>
+
+        <!-- Tarjeta 4: Módulo de Cobranzas -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper bg-emerald-100 text-emerald-600">
+            <i class="fa-solid fa-credit-card"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2 font-heading">Módulo de Cobranzas</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4">
+            Validación de pagos electrónicos, transferencias y pagos contra entrega. Historial de facturación fiscal electrónica y estados de cuenta automáticos por cliente.
+          </p>
+          <ul class="text-xs font-semibold text-slate-700 space-y-2">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Conciliación bancaria automatizada</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Control estricto de Cash-on-Delivery</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Emisión de comprobantes fiscales en PDF</li>
+          </ul>
+        </div>
+
+        <!-- Tarjeta 5: Panel Administrativo Backoffice -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper bg-amber-100 text-amber-600">
+            <i class="fa-solid fa-chart-pie"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2 font-heading">Panel Administrativo (Backoffice)</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4">
+            Dashboard en tiempo real con resúmenes ejecutivos de ventas, pedidos, rotación de marcas y márgenes de utilidad. Exportación directa a Excel y reportes contables.
+          </p>
+          <ul class="text-xs font-semibold text-slate-700 space-y-2">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-600"></i> Gráficos interactivos de ingresos diarios</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-600"></i> Análisis de rotación de marcas y modelos</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-600"></i> Control multi-sucursal centralizado</li>
+          </ul>
+        </div>
+
+        <!-- Tarjeta 6: Seguridad y Roles RBAC -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper bg-rose-100 text-rose-600">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2 font-heading">Seguridad y Roles (RBAC)</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4">
+            Cifrado HTTPS/TLS y control de acceso basado en roles con permisos estrictos por tipo de usuario (Cliente, Administrador, Encargado de Bodega, Repartidor).
+          </p>
+          <ul class="text-xs font-semibold text-slate-700 space-y-2">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-rose-600"></i> Registro de auditoría (quién tocó qué)</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-rose-600"></i> Protección contra inyecciones y accesos</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-rose-600"></i> Sesiones seguras con tokens cifrados</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- ===================================================================
+           SIMULADOR INTERACTIVO DEL CATÁLOGO EN VIVO
+           =================================================================== -->
+      <div id="catalogo-interactivo" class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-8 border-b border-slate-100">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+              <span class="text-xs font-bold uppercase tracking-wider text-emerald-700">Demostración en Tiempo Real</span>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
+              Explora el Catálogo Interactivo de SmartCell
+            </h3>
+            <p class="text-sm text-slate-500 mt-1">
+              Prueba los filtros por marca y audita la ficha de cualquier equipo para ver su trazabilidad por código IMEI.
+            </p>
+          </div>
+
+          <!-- Buscador y contador -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+            <div class="relative min-w-[240px]">
+              <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+              <input 
+                id="catalogSearchInput" 
+                type="text" 
+                placeholder="Buscar modelo o IMEI..." 
+                class="w-full pl-10 pr-4 py-2.5 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-blue-600 focus:outline-none transition-all"
+              />
+            </div>
+            <span id="catalogResultsCount" class="text-xs font-bold text-slate-500 self-center whitespace-nowrap bg-slate-100 px-3 py-2 rounded-xl">
+              6 equipos encontrados
+            </span>
+          </div>
+        </div>
+
+        <!-- Filtros de Marca (Pills) -->
+        <div class="flex flex-wrap items-center gap-2 pt-6 pb-8">
+          <span class="text-xs font-bold text-slate-400 mr-2 uppercase tracking-wider">Filtrar:</span>
+          <button class="filter-pill active px-4 py-2 rounded-xl text-xs" data-brand="all">
+            Todos los Equipos
+          </button>
+          <button class="filter-pill px-4 py-2 rounded-xl text-xs bg-white text-slate-700" data-brand="samsung">
+            <i class="fa-brands fa-android mr-1"></i> Samsung
+          </button>
+          <button class="filter-pill px-4 py-2 rounded-xl text-xs bg-white text-slate-700" data-brand="apple">
+            <i class="fa-brands fa-apple mr-1"></i> Apple
+          </button>
+          <button class="filter-pill px-4 py-2 rounded-xl text-xs bg-white text-slate-700" data-brand="xiaomi">
+            Xiaomi
+          </button>
+          <button class="filter-pill px-4 py-2 rounded-xl text-xs bg-white text-slate-700" data-brand="google">
+            Google Pixel
+          </button>
+          <button class="filter-pill px-4 py-2 rounded-xl text-xs bg-white text-slate-700" data-brand="motorola">
+            Motorola
+          </button>
+        </div>
+
+        <!-- Grid Dinámico de Celulares (Inyectado por JS) -->
+        <div id="catalogProductsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- El contenido se renderiza dinámicamente desde js/main.js -->
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       5. SECCIÓN CÓMO FUNCIONA (FLUJO EN 4 PASOS)
+       ========================================================================= -->
+  <section id="como-funciona" class="py-24 bg-white border-y border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Título de Sección -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-blue-600 font-bold text-xs uppercase tracking-wider bg-blue-50 px-3 py-1.5 rounded-full border border-blue-200 inline-block mb-3">
+          Flujo Operativo Simple
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-heading mb-4">
+          Cómo Funciona SmartCell: <span class="text-gradient-primary">De la Bodega al Cliente</span>
+        </h2>
+        <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+          Un proceso automatizado y libre de errores en solo 4 pasos para dominar tu comercialización tecnológica.
+        </p>
+      </div>
+
+      <!-- Cuadrícula de 4 Pasos -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+        
+        <!-- Paso 1 -->
+        <div class="step-item bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between hover:border-blue-400 hover:shadow-lg transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div class="step-number bg-blue-600 text-white text-base">01</div>
+              <span class="text-xs font-mono text-slate-400 font-bold">RECEPCIÓN</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2 font-heading">Carga y Registro IMEI</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Escanea o importa en lote los códigos IMEI de 15 dígitos al recibir los equipos en almacén. Cada celular queda individualizado de inmediato.
+            </p>
+          </div>
+          <div class="mt-4 pt-4 border-t border-slate-200/60 text-xs font-semibold text-blue-600 flex items-center gap-1">
+            <i class="fa-solid fa-barcode"></i> Cero descuadres iniciales
+          </div>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="step-item bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between hover:border-blue-400 hover:shadow-lg transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div class="step-number bg-blue-600 text-white text-base">02</div>
+              <span class="text-xs font-mono text-slate-400 font-bold">PUBLICACIÓN</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2 font-heading">Publica en Tienda Web</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Tu catálogo online se activa con diseño moderno, fotos de alta resolución, fichas técnicas y pasarelas de pago configuradas listas para vender.
+            </p>
+          </div>
+          <div class="mt-4 pt-4 border-t border-slate-200/60 text-xs font-semibold text-blue-600 flex items-center gap-1">
+            <i class="fa-solid fa-store"></i> Experiencia e-commerce fluida
+          </div>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="step-item bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between hover:border-blue-400 hover:shadow-lg transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div class="step-number bg-blue-600 text-white text-base">03</div>
+              <span class="text-xs font-mono text-slate-400 font-bold">VENTA</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2 font-heading">Venta y Reserva Inmediata</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Cuando el cliente final compra en la web, el sistema aparta automáticamente el IMEI específico para evitar sobreventas y notifica al área de despacho.
+            </p>
+          </div>
+          <div class="mt-4 pt-4 border-t border-slate-200/60 text-xs font-semibold text-blue-600 flex items-center gap-1">
+            <i class="fa-solid fa-lock"></i> Bloqueo de stock en tiempo real
+          </div>
+        </div>
+
+        <!-- Paso 4 -->
+        <div class="step-item bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between hover:border-blue-400 hover:shadow-lg transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div class="step-number bg-emerald-600 text-white text-base">04</div>
+              <span class="text-xs font-mono text-slate-400 font-bold">ENTREGA</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2 font-heading">Despacho y Conciliación</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Se genera la orden de envío con el IMEI impreso, el repartidor entrega el paquete al cliente y el cobro se concilia en el panel administrativo.
+            </p>
+          </div>
+          <div class="mt-4 pt-4 border-t border-slate-200/60 text-xs font-semibold text-emerald-600 flex items-center gap-1">
+            <i class="fa-solid fa-circle-check"></i> Ciclo comercial 100% cerrado
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       6. SECCIÓN DE TESTIMONIOS Y CASOS DE USO
+       ========================================================================= -->
+  <section id="testimonios" class="py-24 bg-[#F8FAFC]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Título de Sección -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-blue-600 font-bold text-xs uppercase tracking-wider bg-blue-50 px-3 py-1.5 rounded-full border border-blue-200 inline-block mb-3">
+          Casos de Éxito Reales
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-heading mb-4">
+          Lo que Dicen <span class="text-gradient-primary">Nuestros Stakeholders</span>
+        </h2>
+        <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+          Desde el comprador en casa hasta el gerente general: una experiencia impecable para cada participante de la cadena de valor.
+        </p>
+      </div>
+
+      <!-- Tarjetas de Testimonios (4 Perfiles Clave) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Testimonio 1: Cliente Final -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col justify-between hover:shadow-xl hover:border-blue-300 transition-all">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 italic leading-relaxed mb-6">
+              "Pude verificar el código IMEI de mi Galaxy antes de recibirlo. La entrega llegó en 3 horas con factura digital y garantía oficial. La mejor experiencia que he tenido comprando tecnología por internet."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+            <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-sm">
+              CM
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-slate-900">Carlos Mendoza</h4>
+              <span class="text-[11px] text-slate-500 font-medium">Cliente Final • Comprador Online</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonio 2: Auxiliar de Inventario -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col justify-between hover:shadow-xl hover:border-blue-300 transition-all">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 italic leading-relaxed mb-6">
+              "Antes pasábamos fines de semana enteros contando cajas y buscando celulares perdidos. Con el escaneo de IMEI de SmartCell, el stock cuadra al 100% todos los días y las auditorías toman solo minutos."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+            <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">
+              SR
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-slate-900">Sofía Ramos</h4>
+              <span class="text-[11px] text-slate-500 font-medium">Líder de Bodega • CeluExpress</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonio 3: Encargado de Logística -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col justify-between hover:shadow-xl hover:border-blue-300 transition-all">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 italic leading-relaxed mb-6">
+              "Las órdenes de despacho ya vienen con el IMEI vinculado directamente. El motorizado entrega el equipo exacto siempre, sin confusiones de color o almacenamiento. Cero devoluciones por equivocaciones."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+            <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-sm">
+              MV
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-slate-900">Mateo Valdivia</h4>
+              <span class="text-[11px] text-slate-500 font-medium">Coordinador de Flota • MóvilFast</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonio 4: Dueño / Gerente General -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col justify-between hover:shadow-xl hover:border-blue-300 transition-all">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 italic leading-relaxed mb-6">
+              "Redujimos las pérdidas por extravíos en más del 40% durante el primer mes y aumentamos nuestras ventas online un 65%. SmartCell transformó por completo la rentabilidad de nuestra cadena de tiendas."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+            <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-sm">
+              RA
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-slate-900">Ing. Roberto Arévalo</h4>
+              <span class="text-[11px] text-slate-500 font-medium">Fundador • TechZone Retail</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       7. SECCIÓN DE PRECIOS Y PLANES (CON TOGGLE MENSUAL/ANUAL)
+       ========================================================================= -->
+  <section id="planes" class="py-24 bg-white border-y border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Título de Sección -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-blue-600 font-bold text-xs uppercase tracking-wider bg-blue-50 px-3 py-1.5 rounded-full border border-blue-200 inline-block mb-3">
+          Inversión Transparente
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-heading mb-4">
+          Planes Diseñados para Cada <span class="text-gradient-primary">Etapa de tu Negocio</span>
+        </h2>
+        <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+          Comienza hoy sin sorpresas. Todos los planes incluyen catálogo virtual y trazabilidad por código IMEI.
+        </p>
+
+        <!-- Toggle Switch Facturación Mensual / Anual -->
+        <div class="inline-flex items-center gap-4 mt-8 p-1.5 bg-slate-100 rounded-full border border-slate-200">
+          <span class="text-xs font-bold text-slate-700 pl-3">Facturación Mensual</span>
+          <button 
+            id="billingToggleBtn" 
+            type="button" 
+            class="toggle-switch-bg w-14 h-8 p-1 flex items-center cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-600"
+            aria-label="Alternar facturación mensual o anual"
+          >
+            <span class="toggle-switch-thumb"></span>
+          </button>
+          <div class="flex items-center gap-1.5 pr-2">
+            <span class="text-xs font-bold text-slate-700">Facturación Anual</span>
+            <span class="bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">
+              -20% Ahorro
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjetas de Planes (3 Niveles) -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
+        
+        <!-- PLAN 1: Emprendedor -->
+        <div class="pricing-card p-8 flex flex-col justify-between">
+          <div>
+            <div class="mb-4">
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block">TIENDAS PEQUEÑAS</span>
+              <h3 class="text-2xl font-bold text-slate-900 font-heading">Plan Emprendedor</h3>
+              <p class="text-xs text-slate-500 mt-1">Ideal para comercializadores independientes y boutiques de celulares.</p>
+            </div>
+
+            <!-- Precio -->
+            <div class="my-6 pb-6 border-b border-slate-100">
+              <div class="flex items-baseline gap-1">
+                <span class="price-val text-4xl sm:text-5xl font-extrabold text-slate-900 font-heading transition-opacity" data-monthly="29" data-yearly="23">
+                  $29
+                </span>
+                <span class="text-xs text-slate-500 font-medium">USD</span>
+                <span class="billing-period-label text-xs text-slate-500 ml-1">/mes</span>
+              </div>
+              <span class="text-[11px] text-slate-400 mt-1 block">Hasta 500 IMEIs activos en sistema</span>
+            </div>
+
+            <!-- Lista de Características -->
+            <ul class="space-y-3 text-xs text-slate-600 mb-8">
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-blue-600"></i>
+                <span>Catálogo online responsive para ventas</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-blue-600"></i>
+                <span>Control de inventario por IMEI (hasta 500)</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-blue-600"></i>
+                <span>2 Usuarios (Administrador y Bodeguero)</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-blue-600"></i>
+                <span>Reportes básicos de stock y ventas en PDF</span>
+              </li>
+              <li class="flex items-center gap-2.5 text-slate-400">
+                <i class="fa-solid fa-xmark text-slate-300"></i>
+                <span>Módulo de asignación a motorizados</span>
+              </li>
+            </ul>
+          </div>
+
+          <a 
+            href="#contacto" 
+            class="w-full py-3.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl font-bold text-xs text-center transition-all cursor-pointer"
+          >
+            Seleccionar Plan Emprendedor
+          </a>
+        </div>
+
+        <!-- PLAN 2: Pro Business (DESTACADO / MÁS POPULAR) -->
+        <div class="pricing-card featured p-8 flex flex-col justify-between relative bg-white">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-[11px] font-extrabold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-md">
+            ⭐ Más Popular & Recomendado
+          </div>
+
+          <div>
+            <div class="mb-4 pt-2">
+              <span class="text-xs font-bold text-blue-600 uppercase tracking-wider block">TIENDAS EN CRECIMIENTO</span>
+              <h3 class="text-2xl font-bold text-slate-900 font-heading">Plan Pro Business</h3>
+              <p class="text-xs text-slate-500 mt-1">Solución completa con e-commerce, logística integrada y cobranzas.</p>
+            </div>
+
+            <!-- Precio -->
+            <div class="my-6 pb-6 border-b border-slate-100">
+              <div class="flex items-baseline gap-1">
+                <span class="price-val text-4xl sm:text-5xl font-extrabold text-blue-600 font-heading transition-opacity" data-monthly="79" data-yearly="63">
+                  $79
+                </span>
+                <span class="text-xs text-slate-500 font-medium">USD</span>
+                <span class="billing-period-label text-xs text-slate-500 ml-1">/mes</span>
+              </div>
+              <span class="text-[11px] text-blue-600 font-semibold mt-1 block">Hasta 3,500 IMEIs activos en sistema</span>
+            </div>
+
+            <!-- Lista de Características -->
+            <ul class="space-y-3 text-xs text-slate-700 mb-8 font-medium">
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-blue-600 font-bold"></i>
+                <span>Todo lo del Plan Emprendedor</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-blue-600 font-bold"></i>
+                <span>Módulo de Logística y Rutas de Despacho</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-blue-600 font-bold"></i>
+                <span>Gestión de Cobranzas y Conciliación COD</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-blue-600 font-bold"></i>
+                <span>10 Usuarios con roles RBAC personalizados</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-blue-600 font-bold"></i>
+                <span>Alertas de stock y reportes exportables en Excel</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-blue-600 font-bold"></i>
+                <span>Soporte prioritario por WhatsApp y videollamada</span>
+              </li>
+            </ul>
+          </div>
+
+          <a 
+            href="#contacto" 
+            class="w-full py-3.5 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-xs text-center shadow-lg shadow-blue-600/30 transition-all cursor-pointer"
+          >
+            Seleccionar Plan Pro Business
+          </a>
+        </div>
+
+        <!-- PLAN 3: Enterprise -->
+        <div class="pricing-card p-8 flex flex-col justify-between">
+          <div>
+            <div class="mb-4">
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block">CADENAS & MAYORISTAS</span>
+              <h3 class="text-2xl font-bold text-slate-900 font-heading">Plan Enterprise</h3>
+              <p class="text-xs text-slate-500 mt-1">Para distribuidores de telefonía con múltiples sucursales y gran volumen.</p>
+            </div>
+
+            <!-- Precio -->
+            <div class="my-6 pb-6 border-b border-slate-100">
+              <div class="flex items-baseline gap-1">
+                <span class="price-val text-4xl sm:text-5xl font-extrabold text-slate-900 font-heading transition-opacity" data-monthly="199" data-yearly="159">
+                  $199
+                </span>
+                <span class="text-xs text-slate-500 font-medium">USD</span>
+                <span class="billing-period-label text-xs text-slate-500 ml-1">/mes</span>
+              </div>
+              <span class="text-[11px] text-emerald-600 font-semibold mt-1 block">IMEIs ilimitados • Multi-sucursal</span>
+            </div>
+
+            <!-- Lista de Características -->
+            <ul class="space-y-3 text-xs text-slate-600 mb-8">
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-blue-600"></i>
+                <span>Trazabilidad ilimitada de IMEIs y sucursales</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-blue-600"></i>
+                <span>API REST para sincronización con SAP / ERP externo</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-blue-600"></i>
+                <span>Usuarios ilimitados con auditoría avanzada</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-blue-600"></i>
+                <span>Servidor dedicado con SLA de disponibilidad 99.9%</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-blue-600"></i>
+                <span>Gerente de cuenta técnico y capacitación 24/7</span>
+              </li>
+            </ul>
+          </div>
+
+          <a 
+            href="#contacto" 
+            class="w-full py-3.5 px-4 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-bold text-xs text-center transition-all cursor-pointer"
+          >
+            Contactar para Enterprise
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       8. CALL TO ACTION FINAL (CTA) & FORMULARIO DE DEMO
+       ========================================================================= -->
+  <section id="contacto" class="py-24 bg-slate-900 text-white relative overflow-hidden bg-dark-grid">
+    <!-- Efectos de Brillo -->
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-blue-600/20 blur-[100px] rounded-full pointer-events-none"></div>
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-cyan-500/20 blur-[100px] rounded-full pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="glass-card-dark rounded-3xl p-8 sm:p-14 border border-slate-700/80 shadow-2xl text-center">
+        
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/30 text-cyan-300 text-xs font-bold uppercase tracking-wider mb-6">
+          <i class="fa-solid fa-bolt"></i> Despliegue Inmediato
+        </span>
+
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight font-heading max-w-3xl mx-auto mb-6">
+          ¿Listo para transformar la gestión y venta de celulares en tu negocio?
+        </h2>
+
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto mb-10">
+          Únete a más de 450 distribuidores y tiendas de telefonía móvil que ya dominan sus inventarios, eliminan pérdidas y multiplican sus ventas con SmartCell.
+        </p>
+
+        <!-- Formulario Rápido de Captura / Demo -->
+        <form id="demoLeadForm" class="max-w-2xl mx-auto space-y-4 text-left">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="leadName" class="block text-xs font-bold text-slate-300 mb-1.5">Nombre o Tienda:</label>
+              <input 
+                type="text" 
+                id="leadName" 
+                name="leadName" 
+                required 
+                placeholder="Ej. Celulares Express S.A." 
+                class="w-full px-4 py-3 bg-slate-800/90 border border-slate-700 rounded-xl text-white text-xs placeholder:text-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
+              />
+            </div>
+            <div>
+              <label for="leadEmail" class="block text-xs font-bold text-slate-300 mb-1.5">Correo Electrónico:</label>
+              <input 
+                type="email" 
+                id="leadEmail" 
+                name="leadEmail" 
+                required 
+                placeholder="contacto@tutienda.com" 
+                class="w-full px-4 py-3 bg-slate-800/90 border border-slate-700 rounded-xl text-white text-xs placeholder:text-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="leadVolume" class="block text-xs font-bold text-slate-300 mb-1.5">Volumen Mensual Estimado:</label>
+              <select 
+                id="leadVolume" 
+                name="leadVolume" 
+                class="w-full px-4 py-3 bg-slate-800/90 border border-slate-700 rounded-xl text-white text-xs focus:outline-none focus:border-blue-500 transition-colors"
+              >
+                <option value="1-50">Menos de 50 celulares/mes</option>
+                <option value="50-300">50 a 300 celulares/mes</option>
+                <option value="300-1000">300 a 1,000 celulares/mes</option>
+                <option value="1000+">Más de 1,000 celulares/mes (Mayorista)</option>
+              </select>
+            </div>
+            <div class="flex items-end">
+              <button 
+                type="submit" 
+                class="w-full py-3.5 px-6 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-extrabold rounded-xl shadow-lg shadow-blue-500/25 transition-all text-xs flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>Comenzar Ahora — 14 Días Gratis</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <p class="text-[11px] text-slate-400 text-center pt-2">
+            <i class="fa-solid fa-lock text-cyan-400 mr-1"></i> Sin tarjeta de crédito requerida • Configuración guiada en 15 minutos • Cancelación libre
+          </p>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       9. FOOTER COMPLETO
+       ========================================================================= -->
+  <footer class="bg-slate-950 text-slate-400 text-xs border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        
+        <!-- Columna 1: Logo & Info Institucional -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-700 to-cyan-400 flex items-center justify-center text-white text-base">
+              <i class="fa-solid fa-mobile-screen-button"></i>
+            </div>
+            <span class="font-heading font-extrabold text-xl text-white">Smart<span class="text-blue-500">Cell</span></span>
+          </div>
+          <p class="text-slate-400 leading-relaxed mb-4">
+            La plataforma integral de E-Commerce y ERP ligero para la comercialización inteligente de teléfonos celulares y accesorios con trazabilidad por código IMEI.
+          </p>
+          <div class="p-3 bg-slate-900 rounded-xl border border-slate-800 text-[11px] text-slate-400">
+            <strong class="text-slate-200 block mb-0.5">Proyecto de Ingeniería de Software</strong>
+            Desarrollo web profesional estático para despliegue en Render y GitHub Pages.
+          </div>
+        </div>
+
+        <!-- Columna 2: Enlaces Rápidos de Navegación -->
+        <div>
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 font-heading">Navegación</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#inicio" class="hover:text-white transition-colors">Inicio</a></li>
+            <li><a href="#vision" class="hover:text-white transition-colors">Visión del Proyecto</a></li>
+            <li><a href="#caracteristicas" class="hover:text-white transition-colors">Módulos & Beneficios</a></li>
+            <li><a href="#catalogo-interactivo" class="hover:text-white transition-colors">Catálogo Interactivo</a></li>
+            <li><a href="#como-funciona" class="hover:text-white transition-colors">Flujo en 4 Pasos</a></li>
+            <li><a href="#testimonios" class="hover:text-white transition-colors">Casos de Uso</a></li>
+            <li><a href="#planes" class="hover:text-white transition-colors">Planes y Precios</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: Legalidad y Seguridad -->
+        <div>
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 font-heading">Legal & Seguridad</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#" class="hover:text-white transition-colors">Términos de Servicio</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Política de Privacidad de Datos</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Protocolo de Cifrado TLS 1.3</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Seguridad de Roles (RBAC)</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Certificación GSMA IMEI</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Acuerdo de Nivel de Servicio (SLA 99.5%)</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 4: Contacto & Redes Sociales -->
+        <div>
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 font-heading">Contacto & Soporte</h4>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-envelope text-blue-500"></i>
+              <span>soporte@smartcellcommerce.com</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-phone text-cyan-400"></i>
+              <span>+593 99 123 4567 (Soporte 24/7)</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span class="text-emerald-400 font-semibold">Servidores Operativos (100% Online)</span>
+            </li>
+          </ul>
+
+          <div class="flex items-center gap-3">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-blue-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors" title="GitHub">
+              <i class="fa-brands fa-github text-sm"></i>
+            </a>
+            <a href="#" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-blue-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors" title="LinkedIn">
+              <i class="fa-brands fa-linkedin-in text-sm"></i>
+            </a>
+            <a href="#" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-blue-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors" title="Twitter / X">
+              <i class="fa-brands fa-x-twitter text-sm"></i>
+            </a>
+            <a href="#" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-emerald-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors" title="WhatsApp Business">
+              <i class="fa-brands fa-whatsapp text-sm"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Barra Inferior de Copyright & Despliegue -->
+      <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <p class="text-slate-500">
+          SmartCell Commerce Platform © 2026. Preparado para despliegue estático en Render y GitHub Pages.
+        </p>
+        <div class="flex items-center gap-3 text-[11px]">
+          <span class="inline-flex items-center gap-1.5 bg-slate-900 px-2.5 py-1 rounded-md border border-slate-800 text-slate-400">
+            <i class="fa-solid fa-server text-cyan-400"></i> Render Static Site
+          </span>
+          <span class="inline-flex items-center gap-1.5 bg-slate-900 px-2.5 py-1 rounded-md border border-slate-800 text-slate-400">
+            <i class="fa-brands fa-github text-slate-300"></i> GitHub Ready
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       MODAL 1: FICHA TÉCNICA Y AUDITORÍA DE IMEI
+       ========================================================================= -->
+  <div id="imeiModal" class="modal-overlay">
+    <div class="modal-content p-6 sm:p-8">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-lg">
+            <i class="fa-solid fa-barcode"></i>
+          </div>
+          <div>
+            <h4 id="modalImeiTitle" class="text-base font-bold text-slate-900">Auditoría de Equipo</h4>
+            <span class="text-xs text-slate-500 font-mono">IMEI: <strong id="modalImeiCode" class="text-blue-600">--</strong></span>
+          </div>
+        </div>
+        <button class="close-modal-btn w-8 h-8 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center cursor-pointer">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Contenido Inyectado Dinámicamente -->
+      <div id="modalImeiDetails">
+        <!-- Renderizado por JS -->
+      </div>
+
+      <div class="mt-8 pt-4 border-t border-slate-100 flex items-center justify-end gap-3">
+        <button class="close-modal-btn px-4 py-2 bg-slate-100 text-slate-700 rounded-xl text-xs font-bold hover:bg-slate-200 cursor-pointer">
+          Cerrar Ficha
+        </button>
+        <a href="#contacto" class="close-modal-btn px-4 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold hover:bg-blue-700 cursor-pointer">
+          Solicitar Acceso al Sistema
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 2: VISTA PREVIA DEMO PANEL (ACCESO RÁPIDO)
+       ========================================================================= -->
+  <div id="demoModal" class="modal-overlay">
+    <div class="modal-content p-6 sm:p-8">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-cyan-100 text-cyan-600 flex items-center justify-center text-lg">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <div>
+            <h4 class="text-base font-bold text-slate-900">Acceso a Demo Interactivo</h4>
+            <span class="text-xs text-slate-500">Credenciales de prueba para el Backoffice</span>
+          </div>
+        </div>
+        <button class="close-modal-btn w-8 h-8 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center cursor-pointer">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="space-y-4 text-xs">
+        <p class="text-slate-600 leading-relaxed">
+          Puedes probar la plataforma de administración con los siguientes roles preconfigurados para verificar la interfaz y las funciones de escaneo por IMEI:
+        </p>
+
+        <div class="space-y-2.5">
+          <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between">
+            <div>
+              <span class="font-bold text-slate-800 block">Rol: Administrador General</span>
+              <span class="text-slate-500 font-mono text-[11px]">admin@smartcell.demo / smartcell2026</span>
+            </div>
+            <span class="text-[10px] font-bold bg-blue-100 text-blue-700 px-2 py-0.5 rounded">Acceso Total</span>
+          </div>
+
+          <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between">
+            <div>
+              <span class="font-bold text-slate-800 block">Rol: Auxiliar de Bodega & IMEI</span>
+              <span class="text-slate-500 font-mono text-[11px]">bodega@smartcell.demo / bodega2026</span>
+            </div>
+            <span class="text-[10px] font-bold bg-amber-100 text-amber-700 px-2 py-0.5 rounded">Inventario</span>
+          </div>
+
+          <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between">
+            <div>
+              <span class="font-bold text-slate-800 block">Rol: Despachos & Logística</span>
+              <span class="text-slate-500 font-mono text-[11px]">envios@smartcell.demo / envios2026</span>
+            </div>
+            <span class="text-[10px] font-bold bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded">Envíos</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-4 border-t border-slate-100 flex items-center justify-end gap-3">
+        <button class="close-modal-btn px-4 py-2 bg-slate-100 text-slate-700 rounded-xl text-xs font-bold hover:bg-slate-200 cursor-pointer">
+          Cerrar
+        </button>
+        <a href="#contacto" class="close-modal-btn px-4 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold hover:bg-blue-700 cursor-pointer">
+          Probar Demo Completo
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       TOAST NOTIFICATION FLOTANTE
+       ========================================================================= -->
+  <div id="toastNotification">
+    <i id="toastIcon" class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+    <span id="toastMessage" class="text-xs font-semibold">Notificación de SmartCell</span>
+  </div>
+
+  <!-- Scripts Principales -->
+  <script src="js/main.js"></script>
+</body>
+</html>
